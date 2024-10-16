@@ -10,6 +10,12 @@ const rl = readline.createInterface({
 rl.question("Digite seu nome: ", (nameHero) => {
     rl.question("Digite sua quantidade de xp: ", (xpInput) => {
         let xp = parseInt(xpInput); // Converte a entrada do XP
+        if (isNaN(xp) || xp < 0) {
+            console.log("Por favor, digite um número válido de xp.");
+            rl.close();
+            return;
+        }
+
         let ranking; // Variável para armazenar o valor do ranking
 
         // O valor do XP será convertido para o valor do ranking
